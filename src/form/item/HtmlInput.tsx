@@ -7,9 +7,10 @@ type InputType = React.ComponentProps<"input">;
 class HtmlInput implements InputInterface<InputType> {
   name = "html-input";
   components = (props: InputType) => {
-    return <input {...props} />;
+    const { value, ...rest } = props;
+    return <input value={value || ""} {...rest} />;
   };
-  createAttr = (p: InputType) => createInputAttr(this.name, p);
+  createAttr = (p?: InputType) => createInputAttr(this.name, p);
 }
 
 export default new HtmlInput();

@@ -1,4 +1,8 @@
-export interface FormContext<T> {
+import { Field } from "rc-field-form";
+
+type FormItem = React.ComponentProps<typeof Field>;
+
+export interface FormContext<T> extends FormItem {
   /**
    * 描述
    */

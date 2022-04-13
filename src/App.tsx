@@ -1,18 +1,32 @@
 import React from "react";
 import "./App.css";
 import SearchForm from "./form/search/SearchForm";
-import { createInputAttr } from "./form/util/InputAttrUtil";
+import HtmlInput from "./form/item/HtmlInput";
+import { initFactory } from "./form/item/base/InputFactory";
+
+initFactory([HtmlInput]);
 
 function App() {
   return (
     <div className="App">
       <SearchForm
+        onSubmit={(data) => {
+          console.log(data);
+        }}
         attributes={[
           {
             formContext: {
-              label: "input",
+              name: "a",
+              label: "a",
             },
-            input: createInputAttr<React.ComponentProps<"input">>("", {}),
+            input: HtmlInput.createAttr(),
+          },
+          {
+            formContext: {
+              name: "b",
+              label: "b",
+            },
+            input: HtmlInput.createAttr(),
           },
         ]}
       />
