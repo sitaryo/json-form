@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import SearchForm from "./form/search/SearchForm";
-import HtmlInput from "./form/item/HtmlInput";
-import { initFactory } from "./form/item/base/InputFactory";
-import { FormItemAttr } from "./form/input";
+import SearchForm from "../lib/search/SearchForm";
+import HtmlInput from "../lib/item/HtmlInput";
+import { initFactory } from "../lib/item/base/InputFactory";
+import { FormItemAttr } from "../lib/input";
 
 initFactory([HtmlInput]);
 
