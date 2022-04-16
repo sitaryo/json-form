@@ -1,5 +1,4 @@
-import InputInterface from "./input.interface";
-import { createInputAttr } from "../util/InputAttrUtil";
+import InputInterface, { createInputAttr } from "./input.interface";
 import React from "react";
 
 type InputType = React.ComponentProps<"input">;
