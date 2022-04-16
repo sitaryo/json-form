@@ -1,10 +1,17 @@
 import React, { FormEvent } from "react";
-import { GroupProps } from "../group";
-import JsonForm from "../../lib/components/JsonForm";
-import Form from "rc-field-form";
+import JsonForm from "../../lib/form/JsonForm";
+import Form, { FormInstance } from "rc-field-form";
 import "./search-form.css";
+import { FormItemAttr } from "../../lib";
 
-const SearchForm = <T,>(props: GroupProps<T>) => {
+interface P<T> {
+  attributes: (FormItemAttr<T> | undefined)[];
+  onFinish?: (data: T) => void;
+  onReset?: (data: FormEvent<HTMLFormElement>) => void;
+  form?: FormInstance<T>;
+}
+
+const SearchForm = <T,>(props: P<T>) => {
   const { attributes, form, onFinish, onReset } = props;
   const [defaultForm] = Form.useForm<T>();
   const innerForm = form || defaultForm;

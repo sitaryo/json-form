@@ -1,5 +1,5 @@
 import React from "react";
-import InputInterface from "../item/input.interface";
+import InputInterface from "./inputs/input.interface";
 
 const InputFactory = new Map<string, React.FC<any>>();
 

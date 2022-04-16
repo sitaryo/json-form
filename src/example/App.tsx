@@ -1,7 +1,7 @@
 import React from "react";
 import SearchForm from "./search/SearchForm";
-import HtmlInput from "../lib/core/item/HtmlInput";
-import { initFactory } from "../lib/core/base/InputFactory";
+import HtmlInput from "../lib/inputs/HtmlInput";
+import { initFactory } from "../lib/InputFactory";
 import { User, userSearchFormJson } from "./json/user.json";
 import Form from "rc-field-form";
 

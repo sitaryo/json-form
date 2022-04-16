@@ -1,5 +1,5 @@
-import { FormItemAttr } from "../../lib/core";
-import HtmlInput from "../../lib/core/item/HtmlInput";
+import { FormItemAttr } from "../../lib";
+import HtmlInput from "../../lib/inputs/HtmlInput";
 
 export interface User {
   firstName: string;

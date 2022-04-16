@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { FormItemAttr } from "../index";
 import { Field as RcField } from "rc-field-form";
-import InputFactory from "./InputFactory";
+import InputFactory from "../InputFactory";
 
 interface P<T> {
   attr: FormItemAttr<T>;

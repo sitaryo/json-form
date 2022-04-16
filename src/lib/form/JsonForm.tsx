@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactElement } from "react";
 import RcForm from "rc-field-form";
-import { FormDecoration, FormItemAttr } from "../core";
-import FieldInput from "../core/base/FieldInput";
+import { FormDecoration, FormItemAttr } from "../index";
+import FieldInput from "./FieldInput";
 
 type RcFormProps = React.ComponentProps<typeof RcForm>;
 
