@@ -1,6 +1,11 @@
 {
   "name": "json-form",
   "version": "0.1.0",
+  "author": {
+    "name": "licky",
+    "email": "895260021@qq.com",
+    "url": "https://github.com/sitaryo"
+  },
   "dependencies": {
     "rc-field-form": "^1.25.2"
   },
@@ -9,7 +14,6 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
-  "main": "src/example",
   "eslintConfig": {
     "extends": [
       "react-app",
