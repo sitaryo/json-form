@@ -7,16 +7,14 @@ Use json to build a form. Base on rc-filed-form.
 ```bash
 yarn init
 yarn start
+open http://localhost:3000
 ```
 
 ## Usage
 
 ```typescript
+...
 // create customized input which implements InputInterface
-import InputInterface from "./input.interface";
-import { createInputAttr } from "../util/InputAttrUtil";
-import React from "react";
-
 type InputType = React.ComponentProps<"input">;
 
 class HtmlInput implements InputInterface<InputType> {
@@ -28,55 +26,97 @@ class HtmlInput implements InputInterface<InputType> {
   createAttr = (p?: InputType) => createInputAttr(this.name, p);
 }
 
-export default new HtmlInput();
+...
 
 ```
 
 ```typescript
-import React from "react";
-import "./App.css";
-import SearchForm from "./form/search/SearchForm";
-import HtmlInput from "./form/item/HtmlInput";
-import { initFactory } from "./form/item/base/InputFactory";
-import { FormItemAttr } from "./form/input";
-
+...
 // init the Factory with customized input
 initFactory([HtmlInput]);
 
 // define data type
-interface User {
-  username: string;
+export interface User {
+  firstName: string;
+  lastName: string;
+  age: number;
+  birthday: string;
 }
 
 // create form json
 const form: FormItemAttr<User>[] = [
   {
-    formContext: {
-      name: "username",
-      label: "username",
+    decoration: {
+      label: "First name",
+    },
+    itemContext: {
+      name: "firstName",
+    },
+    input: HtmlInput.createAttr(),
+  },
+  {
+    decoration: {
+      label: "Last name",
+    },
+    itemContext: {
+      name: "lastName",
+    },
+    input: HtmlInput.createAttr(),
+  },
+  {
+    decoration: {
+      label: "Age",
+    },
+    itemContext: {
+      name: "age",
+    },
+    input: HtmlInput.createAttr(),
+  },
+  {
+    decoration: {
+      label: "Birthday",
+    },
+    itemContext: {
+      name: "birthday",
     },
     input: HtmlInput.createAttr(),
   },
 ];
 
 function App() {
-  const showData = (data: User) => console.log(data);
+  const showData = (data: User) => {
+    console.log("you get data with search button:\n", data);
+  };
+
+  const [userSearchForm] = Form.useForm<User>();
+  const getDataOutside = () => {
+    console.log(
+      "you get data with form ref:\n",
+      userSearchForm.getFieldsValue()
+    );
+  };
 
   return (
     <div className="App">
-      <SearchForm<User> onSubmit={showData} attributes={form} />
+    	<SearchForm<User>
+    		// use ref to access form instance
+        form={userSearchForm}
+				// get data use "onFinish"
+        onFinish={showData}
+        attributes={userSearchFormJson}
+      />
+      <div style={{ margin: 24 }}>
+        <button onClick={getDataOutside}>GET DATA OUTSIDE FORM</button>
+      </div>
     </div>
   );
 }
 
-export default App;
+...
 
 
 ```
 
 ## Todo list
 
-- [ ] add default style
 - [ ] create default input
-- [ ] create add form
-- [ ] support customized style

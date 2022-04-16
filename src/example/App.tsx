@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <SearchForm<User>
         form={userSearchForm}
         onFinish={showData}
@@ -30,7 +30,7 @@ function App() {
       <div style={{ margin: 24 }}>
         <button onClick={getDataOutside}>GET DATA OUTSIDE FORM</button>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
