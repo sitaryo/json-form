@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import SearchForm from "../lib/search/SearchForm";
-import HtmlInput from "../lib/item/HtmlInput";
-import { initFactory } from "../lib/item/base/InputFactory";
-import { FormItemAttr } from "../lib/input";
+import SearchForm from "../lib/components/search/SearchForm";
+import HtmlInput from "../lib/core/item/HtmlInput";
+import { initFactory } from "../lib/core/base/InputFactory";
+import { FormItemAttr } from "../lib/core";
 
 initFactory([HtmlInput]);
 
@@ -13,9 +13,11 @@ interface User {
 
 const form: FormItemAttr<User>[] = [
   {
-    formContext: {
-      name: "username",
+    decoration: {
       label: "username",
+    },
+    itemContext: {
+      name: "username",
     },
     input: HtmlInput.createAttr(),
   },
@@ -26,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchForm<User> onSubmit={showData} attributes={form} />
+      <SearchForm<User> onFinish={showData} attributes={form} />
     </div>
   );
 }

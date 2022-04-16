@@ -1,4 +1,4 @@
-import { FormItemAttr } from "./input";
+import { FormItemAttr } from "../core";
 import { FormEvent } from "react";
 import { FormInstance } from "rc-field-form";
 
@@ -10,7 +10,8 @@ export interface GroupProps<T> {
   /**
    * 获取所有属性的值
    */
-  onSubmit?: (data: T) => void;
+  onFinish?: (data: T) => void;
+  preFinish?: (data: T) => void;
   onReset?: (data: FormEvent<HTMLFormElement>) => void;
   /**
    * form hook，用于外部组件获取 form 的值

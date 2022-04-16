@@ -1,4 +1,4 @@
-import { BaseInput } from "../input";
+import { BaseInput } from "../index";
 
 export const createInputAttr = <T>(
   inputType: string,
