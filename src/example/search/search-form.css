@@ -1,0 +1,37 @@
+.card {
+    margin: 24px;
+    padding: 24px;
+    border: 1px solid gray;
+    border-radius: 12px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    row-gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 12px;
+}
+
+.item {
+    display: flex;
+}
+
+.item .label {
+    width: 120px;
+    text-align: right;
+    flex: none;
+}
+
+.item .label:after {
+    content: ":";
+}
+
+.item .input {
+    flex: 1;
+}

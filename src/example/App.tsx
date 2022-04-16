@@ -1,34 +1,35 @@
 import React from "react";
-import "./App.css";
-import SearchForm from "../lib/components/search/SearchForm";
+import SearchForm from "./search/SearchForm";
 import HtmlInput from "../lib/core/item/HtmlInput";
 import { initFactory } from "../lib/core/base/InputFactory";
-import { FormItemAttr } from "../lib/core";
+import { User, userSearchFormJson } from "./json/user.json";
+import Form from "rc-field-form";
 
 initFactory([HtmlInput]);
 
-interface User {
-  username: string;
-}
-
-const form: FormItemAttr<User>[] = [
-  {
-    decoration: {
-      label: "username",
-    },
-    itemContext: {
-      name: "username",
-    },
-    input: HtmlInput.createAttr(),
-  },
-];
-
 function App() {
-  const showData = (data: User) => console.log(data);
+  const showData = (data: User) => {
+    console.log("you get data with search button:\n", data);
+  };
+
+  const [userSearchForm] = Form.useForm<User>();
+  const getDataOutside = () => {
+    console.log(
+      "you get data with form ref:\n",
+      userSearchForm.getFieldsValue()
+    );
+  };
 
   return (
-    <div className="App">
-      <SearchForm<User> onFinish={showData} attributes={form} />
+    <div>
+      <SearchForm<User>
+        form={userSearchForm}
+        onFinish={showData}
+        attributes={userSearchFormJson}
+      />
+      <div style={{ margin: 24 }}>
+        <button onClick={getDataOutside}>GET DATA OUTSIDE FORM</button>
+      </div>
     </div>
   );
 }

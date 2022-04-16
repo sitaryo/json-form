@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactElement } from "react";
 import RcForm from "rc-field-form";
-import { FormDecoration, FormItemAttr } from "../../core";
-import FieldInput from "../../core/base/FieldInput";
+import { FormDecoration, FormItemAttr } from "../core";
+import FieldInput from "../core/base/FieldInput";
 
 type RcFormProps = React.ComponentProps<typeof RcForm>;
 
@@ -15,19 +15,24 @@ interface P<T> extends RcFormProps {
   footer?: ReactElement;
 }
 
-const Form = <T,>(props: PropsWithChildren<P<T>>) => {
+const JsonForm = <T,>(props: PropsWithChildren<P<T>>) => {
   const { preItem, attributes, filedContainer, footer, ...rest } = props;
 
-  const withPreItem = (attr: FormItemAttr<T>, index: number) => {
-    const filedInput = (
-      <FieldInput attr={attr} key={`searchFormItem${index}`} />
-    );
+  const withPreItem = (attr: FormItemAttr<T>) => {
+    const filedInput = <FieldInput attr={attr} />;
     return preItem ? preItem(attr.decoration, filedInput) : filedInput;
   };
 
   const fieldItems = (
     <React.Fragment>
-      {attributes.map((attr, index) => attr && withPreItem(attr, index))}
+      {attributes.map(
+        (attr, index) =>
+          attr && (
+            <React.Fragment key={`searchFormItem${index}`}>
+              {withPreItem(attr)}
+            </React.Fragment>
+          )
+      )}
     </React.Fragment>
   );
 
@@ -41,5 +46,4 @@ const Form = <T,>(props: PropsWithChildren<P<T>>) => {
     </RcForm>
   );
 };
-
-export default Form;
+export default JsonForm;
