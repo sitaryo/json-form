@@ -1,4 +1,4 @@
-import { BaseInput } from "../index";
+import { BaseInput } from "../type";
 import React from "react";
 
 export default interface InputInterface<P> {

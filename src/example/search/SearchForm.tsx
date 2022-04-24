@@ -2,7 +2,7 @@ import React, { FormEvent } from "react";
 import JsonForm from "../../lib/form/JsonForm";
 import Form, { FormInstance } from "rc-field-form";
 import "./search-form.css";
-import { FormItemAttr } from "../../lib";
+import { FormItemAttr } from "../../lib/type";
 
 interface P<T> {
   attributes: (FormItemAttr<T> | undefined)[];

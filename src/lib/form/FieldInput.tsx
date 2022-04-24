@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { FormItemAttr } from "../index";
+import { FormItemAttr } from "../type";
 import { Field as RcField } from "rc-field-form";
 import InputFactory from "../InputFactory";
 

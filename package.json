@@ -1,18 +1,24 @@
 {
-  "name": "json-form",
+  "name": "@touch-fish/json-form",
   "version": "0.1.0",
+  "private": false,
   "author": {
     "name": "licky",
     "email": "895260021@qq.com",
     "url": "https://github.com/sitaryo"
   },
+  "keywords": [
+    "json",
+    "form",
+    "json-form",
+    "form-generate"
+  ],
   "dependencies": {
     "rc-field-form": "^1.25.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build": "tsc"
   },
   "eslintConfig": {
     "extends": [

@@ -1,4 +1,4 @@
-import { FormItemAttr } from "../../lib";
+import { FormItemAttr } from "../../lib/type";
 import HtmlInput from "../../lib/inputs/HtmlInput";
 
 export interface User {
