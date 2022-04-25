@@ -1,12 +1,21 @@
 {
   "name": "@touch-fish/json-form",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": false,
   "author": {
     "name": "licky",
     "email": "895260021@qq.com",
     "url": "https://github.com/sitaryo"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sitaryo/json-form"
+  },
+  "homepage": "https://github.com/sitaryo/json-form",
+  "bugs": {
+    "url": "https://github.com/sitaryo/json-form/issues"
+  },
+  "license": "GPL",
   "main": "./lib/index",
   "files": [
     "lib"
