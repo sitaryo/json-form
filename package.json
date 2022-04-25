@@ -1,12 +1,16 @@
 {
   "name": "@touch-fish/json-form",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "author": {
     "name": "licky",
     "email": "895260021@qq.com",
     "url": "https://github.com/sitaryo"
   },
+  "main": "./lib/index",
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "json",
     "form",
@@ -18,7 +22,8 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "tsc"
+    "build": "rm -rf ./lib && tsc",
+    "publish": "npm publish --access public"
   },
   "eslintConfig": {
     "extends": [
